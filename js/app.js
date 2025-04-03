@@ -9,6 +9,33 @@ async function carregarContatosApi(){
     return data
 }
 
+async function carregarDadosConversasApi(nome) {
+    const url = `https://projeto-whats-marcel.onrender.com/v1/whatsapp/conversas-cada-usuario/cont/11966578996?cont=${nome}`
+    const response = await fetch(url)
+    
+    const data = await response.json()
+
+    return data
+}
+
+async function abrirConversa(nome){
+    const dadosMensagens = await carregarDadosConversasApi(nome)
+    console.log(dadosMensagens)
+    
+    const containerConversa = document.getElementById('containerConversa')
+
+    dadosMensagens.mensagens.forEach(function(item){
+        const containerInvisivel = document.createElement('div')
+        containerInvisivel.classList.add('containerInvisivel')
+        const conversaContato = document.createElement('div')
+        conversaContato.classList.add('conversaContato')
+        const h1Contato = doc
+
+        containerInvisivel.appendChild(conversaContato)
+        containerConversa.appendChild(containerInvisivel)
+    })
+}
+
 async function criarLiDeContatos() {
     const dadosContatos = await carregarContatosApi()
 
@@ -17,6 +44,9 @@ async function criarLiDeContatos() {
     dadosContatos.forEach(function(item){
         const liContato = document.createElement('li')
         liContato.classList.add('contato')
+        
+        liContato.addEventListener('click', () => abrirConversa(item.nome))
+
         const divImage = document.createElement('div')
         divImage.classList.add('imagemContato')
         
@@ -40,18 +70,13 @@ async function criarLiDeContatos() {
 
 }
 
-async function carregarDadosConversasApi(nome) {
-    const url = `https://projeto-whats-marcel.onrender.com/v1/whatsapp/conversas-cada-usuario/cont/11966578996?cont=${nome}`
-    const response = await fetch(url)
-    
-    const data = await response.json()
 
-    return data
-}
+
+
+
 
 
 
 
 
 criarLiDeContatos()
-carregarDadosConversasApi('josé maria da silva')
