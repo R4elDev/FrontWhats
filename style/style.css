@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.ContainerListaDeContatos{
+    background-color: rgb(2, 155, 109);
+    height: 100%;
+    width: 25%;
+    border-right: 4px solid black;
+}
+
+.listaDeContatos{
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.contato{
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    width: 100%;
+    height: 80px;
+}
+
+.imagemContato {
+    border-radius: 20px;
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    margin-right: 15px;
+}
+
+.camposDePesquisa{
+    border-bottom: 1px solid white;
+    height: 5%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.telaDeConversas{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.conversaDigitada{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+}
+
+.containerInvisivel{
+    border: 1px solid black;
+    padding: 15px;
+    display: flex;
+    justify-content: start; /* Fazer um if no js para mudar isso aq*/
+}
+
+.conversaContato {
+    height: 150px;
+    width: 300px;
+    background-color: rgb(161, 236, 214);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.conversaContato .text {
+    margin-top: 10px;
+}
+
+.conversaPropia{
+    height: 150px;
+    width: 300px;
+    background-color: rgb(161, 236, 214);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.digitarConversa{
+    border-top: 2px solid black;
+    background-color: rgb(161, 236, 214);
+    height: 100px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.digitarConversa input {
+    border-style: none;
+    width: 70%;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.enviarMensagem {
+    background-color: azure;
+    height: 70px;
+    width: 70px;
+    border-radius: 40px;
+}
+
+
