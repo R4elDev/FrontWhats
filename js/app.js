@@ -20,19 +20,57 @@ async function carregarDadosConversasApi(nome) {
 
 async function abrirConversa(nome){
     const dadosMensagens = await carregarDadosConversasApi(nome)
-    console.log(dadosMensagens)
     
     const containerConversa = document.getElementById('containerConversa')
-
+    containerConversa.replaceChildren('')
     dadosMensagens.mensagens.forEach(function(item){
-        const containerInvisivel = document.createElement('div')
-        containerInvisivel.classList.add('containerInvisivel')
-        const conversaContato = document.createElement('div')
-        conversaContato.classList.add('conversaContato')
-        const h1Contato = doc
+        item.forEach(function(itemConversas){
+            if(itemConversas.sender == "me"){
 
-        containerInvisivel.appendChild(conversaContato)
-        containerConversa.appendChild(containerInvisivel)
+                console.log(itemConversas)
+                console.log('estou aqui')
+                const containerInvisivelUsuario = document.createElement('div')
+                containerInvisivelUsuario.classList.add('containerInvisivelUsuario')
+                const conversaPropia = document.createElement('div')
+                conversaPropia.classList.add('conversaPropia')
+                const h1Usuario = document.createElement('h1')
+                const pUsuarioHorario = document.createElement('p')
+                const pUsuarioTexto = document.createElement('p')
+
+                h1Usuario.textContent = itemConversas.sender
+                pUsuarioHorario.textContent = itemConversas.time
+                pUsuarioTexto.textContent = itemConversas.content
+
+
+                conversaPropia.appendChild(h1Usuario)
+                conversaPropia.appendChild(pUsuarioHorario)
+                conversaPropia.appendChild(pUsuarioTexto)
+    
+                containerInvisivelUsuario.appendChild(conversaPropia)
+                containerConversa.appendChild(containerInvisivelUsuario)
+            }else{
+                const containerInvisivelContato = document.createElement('div')
+                containerInvisivelContato.classList.add('containerInvisivel')
+                const conversaContato = document.createElement('div')
+                conversaContato.classList.add('conversaContato')
+                const h1Contato = document.createElement('h1')
+                const pContatoHorario = document.createElement('p')
+                const pContatoTexto = document.createElement('p')
+
+                h1Contato.textContent = itemConversas.sender
+                pContatoHorario.textContent = itemConversas.time
+                pContatoTexto.textContent = itemConversas.content
+
+
+                conversaContato.appendChild(h1Contato)
+                conversaContato.appendChild(pContatoHorario)
+                conversaContato.appendChild(pContatoTexto)
+    
+                containerInvisivelContato.appendChild(conversaContato)
+                containerConversa.appendChild(containerInvisivelContato)
+            }
+
+        })
     })
 }
 
@@ -51,7 +89,7 @@ async function criarLiDeContatos() {
         divImage.classList.add('imagemContato')
         
         const divTextosCont = document.createElement('div')
-        divTextosCont.classList.add =('textosContainers')
+        divTextosCont.classList.add('textosContainers')
         const h1ListaContato = document.createElement('h1')
         const pListaContato = document.createElement('p')
 
