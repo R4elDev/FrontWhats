@@ -26,9 +26,6 @@ async function abrirConversa(nome){
     dadosMensagens.mensagens.forEach(function(item){
         item.forEach(function(itemConversas){
             if(itemConversas.sender == "me"){
-
-                console.log(itemConversas)
-                console.log('estou aqui')
                 const containerInvisivelUsuario = document.createElement('div')
                 containerInvisivelUsuario.classList.add('containerInvisivelUsuario')
                 const conversaPropia = document.createElement('div')
